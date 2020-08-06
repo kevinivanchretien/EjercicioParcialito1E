@@ -11,36 +11,62 @@ Considerar que las categorías pueden ser: almacen, lácteos, limpieza o bebidas
 */
 
 function mostrar() {
+	let Producto;
+	let Precio;
 	let Categoria;
-	let precioArt;
-	let nombreArt;
-	let cantArt;
-	let precioMayor=0;
-	let PrecioB;
-	let contador = 0;
+	//let PrecioMayor = 1000;
+	//let PrecioMenor = 0;
+	let contadorBebida = 0;
+	let LacteosPrecio =0;
+	let LacteosNombre;
+	let PrecCaro;
+	let ProdCaro;
+	let Bandera = 0;
 	let Respuesta = "si";
 
-	while (Respuesta == "si") 
-	{
-		Categoria = prompt("eliga una Categoria: almacen/lacteos/limpieza/bebida");
-		nombreArt = prompt("Que articulo desea?")
-		precioArt = parseFloat(prompt("ingrese el precio"));
+	while (Respuesta == "si") {
+		Producto = prompt("Ingrese Nombre del producto").toLowerCase();
+		Precio = parseInt(prompt("Ingrese cuanto cuesta"));
+		Categoria = prompt("En que categoria se encuentra: almacen, lacteos, limpieza, bebidas").toLowerCase();
+		if (Precio <= 1000 && Precio >= 0) {
 
-		if(precioArt >precioMayor){
-		precioMayor=precioArt;
-		}
-		switch(Categoria){
-		case "bebida":
-			if(precioArt >precioB){
-			precioB=precioMayor;
+			if (Bandera == 0) {
+				PrecCaro = Precio;
+				ProdCaro = Producto;
+				Bandera = Bandera + 1;
+
 			}
+			else if (Precio > PrecCaro && Producto != ProdCaro) {
+				PrecCaro = Precio;
+				ProdCaro = Producto;
 
+			}
+			else if (Categoria == "lacteos" || Precio > LacteosPrecio) {
+				LacteosPrecio = Precio;
+				LacteosNombre = Producto;
 
-		Respuesta=prompt("Desea otra cosa? si/no").toLocaleLowerCase(Respuesta);
-
-
-
+			}
+		}
+		if (Categoria == "bebidas") {
+			contadorBebida = contadorBebida + 1;
+		}
+		Respuesta = prompt("Desea continuar? si/no").toLowerCase();
 	}
+	/*Al finalizar, se debe informar:
+	- Nombre de artículo con mayor precio
+	- Nombre de artículo con mayor precio, de la categoría lácteos.
+	- Cantidad de artículos ingresados de categoría bebidas*/
+
+	document.write("El Producto mas caro fue: " + ProdCaro + "<br>");
+	document.write("El lacteo mas caro fue: " + LacteosNombre + "<br>");
+	document.write("Cantidad de bebidas: " + contadorBebida + "<br>");
+
+
+
+
+
+
+
 
 
 
