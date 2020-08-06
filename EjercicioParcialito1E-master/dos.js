@@ -27,7 +27,7 @@ function mostrar() {
 		precioArt = parseFloat(prompt("ingrese el precio"));
 
 		if(precioArt >precioMayor){
-		precioMayor=precioMayor;
+		precioMayor=precioArt;
 		}
 		switch(Categoria){
 		case "bebida":
