@@ -17,7 +17,7 @@ function mostrar() {
 	//let PrecioMayor = 1000;
 	//let PrecioMenor = 0;
 	let contadorBebida = 0;
-	let LacteosPrecio =0;
+	let LacteosPrecio = 0;
 	let LacteosNombre;
 	let PrecCaro;
 	let ProdCaro;
@@ -41,7 +41,7 @@ function mostrar() {
 				ProdCaro = Producto;
 
 			}
-			else if (Categoria == "lacteos" || Precio > LacteosPrecio) {
+			else if (Categoria == "lacteos" && Precio > LacteosPrecio) {
 				LacteosPrecio = Precio;
 				LacteosNombre = Producto;
 
@@ -52,11 +52,6 @@ function mostrar() {
 		}
 		Respuesta = prompt("Desea continuar? si/no").toLowerCase();
 	}
-	/*Al finalizar, se debe informar:
-	- Nombre de artículo con mayor precio
-	- Nombre de artículo con mayor precio, de la categoría lácteos.
-	- Cantidad de artículos ingresados de categoría bebidas*/
-
 	document.write("El Producto mas caro fue: " + ProdCaro + "<br>");
 	document.write("El lacteo mas caro fue: " + LacteosNombre + "<br>");
 	document.write("Cantidad de bebidas: " + contadorBebida + "<br>");
